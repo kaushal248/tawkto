@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "transactionId": { "type": "string" },
+        "pgsStatus": { "type": "string" },
+        "tranType": { "type": "string" },
+        "currency": { "type": "string" },
+        "amount": { "type": "number" },
+        "balanceBefore": { "type": "number" },
+        "balanceAfter": { "type": "number" },
+        "remark": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "id",
+        "transactionId",
+        "pgsStatus",
+        "tranType",
+        "currency",
+        "amount",
+        "balanceBefore",
+        "balanceAfter",
+        "remark",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "message": { "type": "string" }
+  },
+  "required": ["data", "message"]
+}
