@@ -1,36 +1,66 @@
 {
-  "type": "object",
-  "properties": {
-    "data": {
-      "type": "object",
-      "properties": {
-        "id": { "type": "string" },
-        "transactionId": { "type": "string" },
-        "pgsStatus": { "type": "string" },
-        "tranType": { "type": "string" },
-        "currency": { "type": "string" },
-        "amount": { "type": "number" },
-        "balanceBefore": { "type": "number" },
-        "balanceAfter": { "type": "number" },
-        "remark": { "type": "string" },
-        "createdAt": { "type": "string", "format": "date-time" },
-        "updatedAt": { "type": "string", "format": "date-time" }
-      },
-      "required": [
-        "id",
-        "transactionId",
-        "pgsStatus",
-        "tranType",
-        "currency",
-        "amount",
-        "balanceBefore",
-        "balanceAfter",
-        "remark",
-        "createdAt",
-        "updatedAt"
-      ]
-    },
-    "message": { "type": "string" }
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Transaction API",
+    "version": "1.0.0"
   },
-  "required": ["data", "message"]
+  "paths": {
+    "/transaction": {
+      "get": {
+        "summary": "Get transaction details",
+        "responses": {
+          "200": {
+            "description": "Successful transaction response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "TransactionResponse": {
+        "type": "object",
+        "required": ["data", "message"],
+        "properties": {
+          "data": {
+            "type": "object",
+            "required": [
+              "id",
+              "transactionId",
+              "pgsStatus",
+              "tranType",
+              "currency",
+              "amount",
+              "balanceBefore",
+              "balanceAfter",
+              "remark",
+              "createdAt",
+              "updatedAt"
+            ],
+            "properties": {
+              "id": { "type": "string" },
+              "transactionId": { "type": "string" },
+              "pgsStatus": { "type": "string" },
+              "tranType": { "type": "string" },
+              "currency": { "type": "string" },
+              "amount": { "type": "number" },
+              "balanceBefore": { "type": "number" },
+              "balanceAfter": { "type": "number" },
+              "remark": { "type": "string" },
+              "createdAt": { "type": "string", "format": "date-time" },
+              "updatedAt": { "type": "string", "format": "date-time" }
+            }
+          },
+          "message": { "type": "string" }
+        }
+      }
+    }
+  }
 }
